@@ -1,0 +1,286 @@
+{
+  "versao": "2026.08",
+  "ano_base": 2026,
+  "observacao": "Percentuais de repartição conforme Anexos I a V vigentes. Valores em fração de 1.",
+  "anexos": {
+    "Anexo I": {
+      "1": {
+        "IRPJ": 0.055,
+        "CSLL": 0.035,
+        "COFINS": 0.1274,
+        "PIS/Pasep": 0.0276,
+        "CPP": 0.415,
+        "ICMS": 0.34
+      },
+      "2": {
+        "IRPJ": 0.055,
+        "CSLL": 0.035,
+        "COFINS": 0.1274,
+        "PIS/Pasep": 0.0276,
+        "CPP": 0.415,
+        "ICMS": 0.34
+      },
+      "3": {
+        "IRPJ": 0.055,
+        "CSLL": 0.035,
+        "COFINS": 0.1274,
+        "PIS/Pasep": 0.0276,
+        "CPP": 0.42,
+        "ICMS": 0.335
+      },
+      "4": {
+        "IRPJ": 0.055,
+        "CSLL": 0.035,
+        "COFINS": 0.1274,
+        "PIS/Pasep": 0.0276,
+        "CPP": 0.42,
+        "ICMS": 0.335
+      },
+      "5": {
+        "IRPJ": 0.055,
+        "CSLL": 0.035,
+        "COFINS": 0.1274,
+        "PIS/Pasep": 0.0276,
+        "CPP": 0.42,
+        "ICMS": 0.335
+      },
+      "6": {
+        "IRPJ": 0.135,
+        "CSLL": 0.1,
+        "COFINS": 0.2827,
+        "PIS/Pasep": 0.0613,
+        "CPP": 0.421,
+        "ICMS": 0.0
+      }
+    },
+    "Anexo II": {
+      "1": {
+        "IRPJ": 0.055,
+        "CSLL": 0.035,
+        "COFINS": 0.1151,
+        "PIS/Pasep": 0.0249,
+        "CPP": 0.375,
+        "IPI": 0.075,
+        "ICMS": 0.32
+      },
+      "2": {
+        "IRPJ": 0.055,
+        "CSLL": 0.035,
+        "COFINS": 0.1151,
+        "PIS/Pasep": 0.0249,
+        "CPP": 0.375,
+        "IPI": 0.075,
+        "ICMS": 0.32
+      },
+      "3": {
+        "IRPJ": 0.055,
+        "CSLL": 0.035,
+        "COFINS": 0.1151,
+        "PIS/Pasep": 0.0249,
+        "CPP": 0.375,
+        "IPI": 0.075,
+        "ICMS": 0.32
+      },
+      "4": {
+        "IRPJ": 0.055,
+        "CSLL": 0.035,
+        "COFINS": 0.1151,
+        "PIS/Pasep": 0.0249,
+        "CPP": 0.375,
+        "IPI": 0.075,
+        "ICMS": 0.32
+      },
+      "5": {
+        "IRPJ": 0.055,
+        "CSLL": 0.035,
+        "COFINS": 0.1151,
+        "PIS/Pasep": 0.0249,
+        "CPP": 0.375,
+        "IPI": 0.075,
+        "ICMS": 0.32
+      },
+      "6": {
+        "IRPJ": 0.085,
+        "CSLL": 0.075,
+        "COFINS": 0.2096,
+        "PIS/Pasep": 0.0454,
+        "CPP": 0.235,
+        "IPI": 0.35,
+        "ICMS": 0.0
+      }
+    },
+    "Anexo III": {
+      "1": {
+        "IRPJ": 0.04,
+        "CSLL": 0.035,
+        "COFINS": 0.1282,
+        "PIS/Pasep": 0.0278,
+        "CPP": 0.434,
+        "ISS": 0.335
+      },
+      "2": {
+        "IRPJ": 0.04,
+        "CSLL": 0.035,
+        "COFINS": 0.1405,
+        "PIS/Pasep": 0.0305,
+        "CPP": 0.434,
+        "ISS": 0.32
+      },
+      "3": {
+        "IRPJ": 0.04,
+        "CSLL": 0.035,
+        "COFINS": 0.1364,
+        "PIS/Pasep": 0.0296,
+        "CPP": 0.434,
+        "ISS": 0.325
+      },
+      "4": {
+        "IRPJ": 0.04,
+        "CSLL": 0.035,
+        "COFINS": 0.1364,
+        "PIS/Pasep": 0.0296,
+        "CPP": 0.434,
+        "ISS": 0.325
+      },
+      "5": {
+        "IRPJ": 0.04,
+        "CSLL": 0.035,
+        "COFINS": 0.1282,
+        "PIS/Pasep": 0.0278,
+        "CPP": 0.434,
+        "ISS": 0.335
+      },
+      "6": {
+        "IRPJ": 0.35,
+        "CSLL": 0.15,
+        "COFINS": 0.1603,
+        "PIS/Pasep": 0.0347,
+        "CPP": 0.305,
+        "ISS": 0.0
+      }
+    },
+    "Anexo IV": {
+      "1": {
+        "IRPJ": 0.188,
+        "CSLL": 0.152,
+        "COFINS": 0.1767,
+        "PIS/Pasep": 0.0383,
+        "ISS": 0.445
+      },
+      "2": {
+        "IRPJ": 0.198,
+        "CSLL": 0.152,
+        "COFINS": 0.2055,
+        "PIS/Pasep": 0.0445,
+        "ISS": 0.4
+      },
+      "3": {
+        "IRPJ": 0.208,
+        "CSLL": 0.152,
+        "COFINS": 0.1973,
+        "PIS/Pasep": 0.0427,
+        "ISS": 0.4
+      },
+      "4": {
+        "IRPJ": 0.178,
+        "CSLL": 0.192,
+        "COFINS": 0.189,
+        "PIS/Pasep": 0.041,
+        "ISS": 0.4
+      },
+      "5": {
+        "IRPJ": 0.188,
+        "CSLL": 0.192,
+        "COFINS": 0.1808,
+        "PIS/Pasep": 0.0392,
+        "ISS": 0.4
+      },
+      "6": {
+        "IRPJ": 0.535,
+        "CSLL": 0.215,
+        "COFINS": 0.2055,
+        "PIS/Pasep": 0.0445,
+        "ISS": 0.0
+      }
+    },
+    "Anexo V": {
+      "1": {
+        "IRPJ": 0.25,
+        "CSLL": 0.15,
+        "COFINS": 0.141,
+        "PIS/Pasep": 0.0305,
+        "CPP": 0.2885,
+        "ISS": 0.14
+      },
+      "2": {
+        "IRPJ": 0.23,
+        "CSLL": 0.15,
+        "COFINS": 0.141,
+        "PIS/Pasep": 0.0305,
+        "CPP": 0.2785,
+        "ISS": 0.17
+      },
+      "3": {
+        "IRPJ": 0.24,
+        "CSLL": 0.15,
+        "COFINS": 0.1492,
+        "PIS/Pasep": 0.0323,
+        "CPP": 0.2385,
+        "ISS": 0.19
+      },
+      "4": {
+        "IRPJ": 0.21,
+        "CSLL": 0.15,
+        "COFINS": 0.1574,
+        "PIS/Pasep": 0.0341,
+        "CPP": 0.2385,
+        "ISS": 0.21
+      },
+      "5": {
+        "IRPJ": 0.23,
+        "CSLL": 0.125,
+        "COFINS": 0.141,
+        "PIS/Pasep": 0.0305,
+        "CPP": 0.2385,
+        "ISS": 0.235
+      },
+      "6": {
+        "IRPJ": 0.35,
+        "CSLL": 0.155,
+        "COFINS": 0.1644,
+        "PIS/Pasep": 0.0356,
+        "CPP": 0.295,
+        "ISS": 0.0
+      }
+    }
+  },
+  "redistribuicao_iss_excedente": {
+    "Anexo III": {
+      "IRPJ": 0.0602,
+      "CSLL": 0.0526,
+      "COFINS": 0.1928,
+      "PIS/Pasep": 0.0418,
+      "CPP": 0.6526
+    },
+    "Anexo IV": {
+      "IRPJ": 0.3133,
+      "CSLL": 0.32,
+      "COFINS": 0.3013,
+      "PIS/Pasep": 0.0654
+    },
+    "Anexo V": {
+      "IRPJ": 0.3007,
+      "CSLL": 0.1634,
+      "COFINS": 0.1843,
+      "PIS/Pasep": 0.0399,
+      "CPP": 0.3117
+    }
+  },
+  "fontes": {
+    "Anexo I": "Receita Federal - idArquivoBinario=48430",
+    "Anexo II": "Receita Federal - idArquivoBinario=48431",
+    "Anexo III": "Receita Federal - idArquivoBinario=48432",
+    "Anexo IV": "Receita Federal - idArquivoBinario=48433",
+    "Anexo V": "Receita Federal - idArquivoBinario=48446"
+  }
+}

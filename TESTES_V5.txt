@@ -1,0 +1,52 @@
+test_cadastro_pdf_e_atualizacao_por_cnpj (test_database.TestCadastroPDF.test_cadastro_pdf_e_atualizacao_por_cnpj) ... ok
+test_crud_e_historico (test_database.TestDatabase.test_crud_e_historico) ... ok
+test_negativo_bloqueia (test_database.TestDatabase.test_negativo_bloqueia) ... ok
+test_salvar_apuracao (test_database.TestDatabase.test_salvar_apuracao) ... ok
+test_upsert_competencia (test_database.TestDatabase.test_upsert_competencia) ... ok
+test_extrai_cnaes_em_bloco (test_leitor_cnpj.TestLeitorCNPJ.test_extrai_cnaes_em_bloco) ... ok
+test_fator_r_corte (test_motor.TestFatorR.test_fator_r_corte) ... ok
+test_fator_r_truncado (test_motor.TestFatorR.test_fator_r_truncado) ... ok
+test_regras_zero (test_motor.TestFatorR.test_regras_zero) ... ok
+test_empresa_madura_usa_12_anteriores (test_motor.TestHistorico.test_empresa_madura_usa_12_anteriores) ... ok
+test_primeiro_mes_rbt12 (test_motor.TestHistorico.test_primeiro_mes_rbt12) ... ok
+test_terceiro_mes_rbt12 (test_motor.TestHistorico.test_terceiro_mes_rbt12) ... ok
+test_comercio (test_motor.TestLucroPresumido.test_comercio) ... ok
+test_comparador (test_motor.TestLucroPresumido.test_comparador) ... ok
+test_servico_presuncao (test_motor.TestLucroPresumido.test_servico_presuncao) ... ok
+test_alerta_sublimite (test_motor.TestSegregacao.test_alerta_sublimite) ... ok
+test_anexo_iv_sem_cpp_no_das (test_motor.TestSegregacao.test_anexo_iv_sem_cpp_no_das) ... ok
+test_exportacao_comercio (test_motor.TestSegregacao.test_exportacao_comercio) ... ok
+test_iss_retido (test_motor.TestSegregacao.test_iss_retido) ... ok
+test_monofasico_reduz_pis_cofins (test_motor.TestSegregacao.test_monofasico_reduz_pis_cofins) ... ok
+test_multiplos_segmentos (test_motor.TestSegregacao.test_multiplos_segmentos) ... ok
+test_normal_anexo_i (test_motor.TestSegregacao.test_normal_anexo_i) ... ok
+test_segregacao_precisa_fechar (test_motor.TestSegregacao.test_segregacao_precisa_fechar) ... ok
+test_st_reduz_icms (test_motor.TestSegregacao.test_st_reduz_icms) ... ok
+test_anexo_i_2_faixa (test_motor.TestSimplesBasico.test_anexo_i_2_faixa) ... ok
+test_anexo_ii_correcao_faixa_3 (test_motor.TestSimplesBasico.test_anexo_ii_correcao_faixa_3) ... ok
+test_limites (test_motor.TestSimplesBasico.test_limites) ... ok
+test_compensacao_30 (test_regimes_v4.TestLucroReal.test_compensacao_30) ... ok
+test_creditos_pis_cofins (test_regimes_v4.TestLucroReal.test_creditos_pis_cofins) ... ok
+test_irpj_adicional (test_regimes_v4.TestLucroReal.test_irpj_adicional) ... ok
+test_csll_q1_sem_acrescimo_e_q2_com (test_regimes_v4.TestPresumido2026.test_csll_q1_sem_acrescimo_e_q2_com) ... ok
+test_excedente_irpj (test_regimes_v4.TestPresumido2026.test_excedente_irpj) ... ok
+test_sem_excedente (test_regimes_v4.TestPresumido2026.test_sem_excedente) ... ok
+test_cnpj_validator (test_v5_features.TestV5Motores.test_cnpj_validator) ... ok
+test_explicacoes_cobrem_fluxos (test_v5_features.TestV5Motores.test_explicacoes_cobrem_fluxos) ... ok
+test_presumido_misto (test_v5_features.TestV5Motores.test_presumido_misto) ... ok
+test_rbt12_inicio_6_meses (test_v5_features.TestV5Motores.test_rbt12_inicio_6_meses) ... ok
+test_real_compensacao_menor_que_limite (test_v5_features.TestV5Motores.test_real_compensacao_menor_que_limite) ... ok
+test_real_credito_maior_que_debito_nao_negativa (test_v5_features.TestV5Motores.test_real_credito_maior_que_debito_nao_negativa) ... ok
+test_simples_exportacao_anexo_ii (test_v5_features.TestV5Motores.test_simples_exportacao_anexo_ii) ... ok
+test_reducao_e_carga_final (test_validacoes_relatorios.TestDetalhamentoCalculo.test_reducao_e_carga_final) ... ok
+test_monofasico_e_st_combinados (test_validacoes_relatorios.TestMotorAdicional.test_monofasico_e_st_combinados) ... ok
+test_projecao_receita (test_validacoes_relatorios.TestMotorAdicional.test_projecao_receita) ... ok
+test_html (test_validacoes_relatorios.TestRelatorios.test_html) ... ok
+test_pdf (test_validacoes_relatorios.TestRelatorios.test_pdf) ... ok
+test_cnpj_valido_e_invalido (test_validacoes_relatorios.TestValidacoes.test_cnpj_valido_e_invalido) ... ok
+test_competencia (test_validacoes_relatorios.TestValidacoes.test_competencia) ... ok
+
+----------------------------------------------------------------------
+Ran 47 tests in 0.420s
+
+OK

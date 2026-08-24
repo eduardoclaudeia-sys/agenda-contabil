@@ -1,0 +1,15 @@
+{
+  "regime": "Lucro Real",
+  "versao": "2026.01",
+  "vigencia_inicio": "2026-01-01",
+  "vigencia_fim": "2026-12-31",
+  "irpj": {"aliquota": 0.15, "adicional": 0.10, "limite_adicional_mes": 20000.0},
+  "compensacao": {"limite_padrao": 0.30},
+  "csll": {"aliquota_padrao": 0.09},
+  "pis_cofins": {"pis_padrao": 0.0165, "cofins_padrao": 0.076, "regime": "nao_cumulativo"},
+  "fontes": [
+    "Receita Federal - IRPJ: alíquota 15% e adicional de 10% acima de R$20.000/mês",
+    "IN RFB 1700/2017 - bases de IRPJ/CSLL",
+    "Legislação aplicável à compensação de prejuízos fiscais - regra geral de 30%"
+  ]
+}

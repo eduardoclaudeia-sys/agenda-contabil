@@ -1,0 +1,16 @@
+{
+  "regime": "Simples Nacional",
+  "versoes": [
+    {
+      "versao": "2026.08",
+      "vigencia_inicio": "2026-01-01",
+      "vigencia_fim": null,
+      "regras": "2026.08.json",
+      "reparticao": "reparticao_2026.08.json",
+      "fontes": [
+        "Lei Complementar 123/2006",
+        "Resolução CGSN 140/2018"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,274 @@
+{
+    "versao": "2026.08",
+    "ano_base": 2026,
+    "limites": {
+        "simples_nacional": 4800000.0,
+        "sublimite_icms_iss": 3600000.0
+    },
+    "anexos": {
+        "Anexo I": {
+            "descricao": "Comércio",
+            "faixas": [
+                {
+                    "faixa": 1,
+                    "limite_inferior": 0,
+                    "limite_superior": 180000.0,
+                    "aliquota_nominal": 0.04,
+                    "parcela_deduzir": 0
+                },
+                {
+                    "faixa": 2,
+                    "limite_inferior": 180000.01,
+                    "limite_superior": 360000.0,
+                    "aliquota_nominal": 0.073,
+                    "parcela_deduzir": 5940
+                },
+                {
+                    "faixa": 3,
+                    "limite_inferior": 360000.01,
+                    "limite_superior": 720000.0,
+                    "aliquota_nominal": 0.095,
+                    "parcela_deduzir": 13860
+                },
+                {
+                    "faixa": 4,
+                    "limite_inferior": 720000.01,
+                    "limite_superior": 1800000.0,
+                    "aliquota_nominal": 0.107,
+                    "parcela_deduzir": 22500
+                },
+                {
+                    "faixa": 5,
+                    "limite_inferior": 1800000.01,
+                    "limite_superior": 3600000.0,
+                    "aliquota_nominal": 0.143,
+                    "parcela_deduzir": 87300
+                },
+                {
+                    "faixa": 6,
+                    "limite_inferior": 3600000.01,
+                    "limite_superior": 4800000.0,
+                    "aliquota_nominal": 0.19,
+                    "parcela_deduzir": 378000
+                }
+            ]
+        },
+        "Anexo II": {
+            "descricao": "Indústria",
+            "faixas": [
+                {
+                    "faixa": 1,
+                    "limite_inferior": 0,
+                    "limite_superior": 180000.0,
+                    "aliquota_nominal": 0.045,
+                    "parcela_deduzir": 0
+                },
+                {
+                    "faixa": 2,
+                    "limite_inferior": 180000.01,
+                    "limite_superior": 360000.0,
+                    "aliquota_nominal": 0.078,
+                    "parcela_deduzir": 5940
+                },
+                {
+                    "faixa": 3,
+                    "limite_inferior": 360000.01,
+                    "limite_superior": 720000.0,
+                    "aliquota_nominal": 0.1,
+                    "parcela_deduzir": 13860
+                },
+                {
+                    "faixa": 4,
+                    "limite_inferior": 720000.01,
+                    "limite_superior": 1800000.0,
+                    "aliquota_nominal": 0.112,
+                    "parcela_deduzir": 22500
+                },
+                {
+                    "faixa": 5,
+                    "limite_inferior": 1800000.01,
+                    "limite_superior": 3600000.0,
+                    "aliquota_nominal": 0.147,
+                    "parcela_deduzir": 85500
+                },
+                {
+                    "faixa": 6,
+                    "limite_inferior": 3600000.01,
+                    "limite_superior": 4800000.0,
+                    "aliquota_nominal": 0.3,
+                    "parcela_deduzir": 720000
+                }
+            ]
+        },
+        "Anexo III": {
+            "descricao": "Serviços (alíquota reduzida)",
+            "observacao": "Aplica-se a serviços em geral (ex.: contabilidade, informática, manutenção, agências de viagem) quando o Fator R (Folha 12 meses ÷ RBT12) for igual ou superior a 28%. Abaixo disso, a atividade migra para o Anexo V.",
+            "faixas": [
+                {
+                    "faixa": 1,
+                    "limite_inferior": 0,
+                    "limite_superior": 180000.0,
+                    "aliquota_nominal": 0.06,
+                    "parcela_deduzir": 0
+                },
+                {
+                    "faixa": 2,
+                    "limite_inferior": 180000.01,
+                    "limite_superior": 360000.0,
+                    "aliquota_nominal": 0.112,
+                    "parcela_deduzir": 9360
+                },
+                {
+                    "faixa": 3,
+                    "limite_inferior": 360000.01,
+                    "limite_superior": 720000.0,
+                    "aliquota_nominal": 0.135,
+                    "parcela_deduzir": 17640
+                },
+                {
+                    "faixa": 4,
+                    "limite_inferior": 720000.01,
+                    "limite_superior": 1800000.0,
+                    "aliquota_nominal": 0.16,
+                    "parcela_deduzir": 35640
+                },
+                {
+                    "faixa": 5,
+                    "limite_inferior": 1800000.01,
+                    "limite_superior": 3600000.0,
+                    "aliquota_nominal": 0.21,
+                    "parcela_deduzir": 125640
+                },
+                {
+                    "faixa": 6,
+                    "limite_inferior": 3600000.01,
+                    "limite_superior": 4800000.0,
+                    "aliquota_nominal": 0.33,
+                    "parcela_deduzir": 648000
+                }
+            ]
+        },
+        "Anexo IV": {
+            "descricao": "Serviços (construção civil, limpeza, vigilância, advocacia)",
+            "observacao": "A Contribuição Previdenciária Patronal (CPP) NÃO está incluída no DAS deste Anexo. Deve ser recolhida separadamente via GPS, sobre a folha de pagamento.",
+            "faixas": [
+                {
+                    "faixa": 1,
+                    "limite_inferior": 0,
+                    "limite_superior": 180000.0,
+                    "aliquota_nominal": 0.045,
+                    "parcela_deduzir": 0
+                },
+                {
+                    "faixa": 2,
+                    "limite_inferior": 180000.01,
+                    "limite_superior": 360000.0,
+                    "aliquota_nominal": 0.09,
+                    "parcela_deduzir": 8100
+                },
+                {
+                    "faixa": 3,
+                    "limite_inferior": 360000.01,
+                    "limite_superior": 720000.0,
+                    "aliquota_nominal": 0.102,
+                    "parcela_deduzir": 12420
+                },
+                {
+                    "faixa": 4,
+                    "limite_inferior": 720000.01,
+                    "limite_superior": 1800000.0,
+                    "aliquota_nominal": 0.14,
+                    "parcela_deduzir": 39780
+                },
+                {
+                    "faixa": 5,
+                    "limite_inferior": 1800000.01,
+                    "limite_superior": 3600000.0,
+                    "aliquota_nominal": 0.22,
+                    "parcela_deduzir": 183780
+                },
+                {
+                    "faixa": 6,
+                    "limite_inferior": 3600000.01,
+                    "limite_superior": 4800000.0,
+                    "aliquota_nominal": 0.33,
+                    "parcela_deduzir": 828000
+                }
+            ]
+        },
+        "Anexo V": {
+            "descricao": "Serviços (maior valor agregado: TI, engenharia, medicina, etc.)",
+            "observacao": "Aplica-se quando o Fator R (Folha 12 meses ÷ RBT12) for inferior a 28%. Quando o Fator R atingir 28% ou mais, a atividade passa a ser tributada pelo Anexo III (alíquotas menores).",
+            "faixas": [
+                {
+                    "faixa": 1,
+                    "limite_inferior": 0,
+                    "limite_superior": 180000.0,
+                    "aliquota_nominal": 0.155,
+                    "parcela_deduzir": 0
+                },
+                {
+                    "faixa": 2,
+                    "limite_inferior": 180000.01,
+                    "limite_superior": 360000.0,
+                    "aliquota_nominal": 0.18,
+                    "parcela_deduzir": 4500
+                },
+                {
+                    "faixa": 3,
+                    "limite_inferior": 360000.01,
+                    "limite_superior": 720000.0,
+                    "aliquota_nominal": 0.195,
+                    "parcela_deduzir": 9900
+                },
+                {
+                    "faixa": 4,
+                    "limite_inferior": 720000.01,
+                    "limite_superior": 1800000.0,
+                    "aliquota_nominal": 0.205,
+                    "parcela_deduzir": 17100
+                },
+                {
+                    "faixa": 5,
+                    "limite_inferior": 1800000.01,
+                    "limite_superior": 3600000.0,
+                    "aliquota_nominal": 0.23,
+                    "parcela_deduzir": 62100
+                },
+                {
+                    "faixa": 6,
+                    "limite_inferior": 3600000.01,
+                    "limite_superior": 4800000.0,
+                    "aliquota_nominal": 0.305,
+                    "parcela_deduzir": 540000
+                }
+            ]
+        }
+    },
+    "classificacao_cnae": {
+        "modo": "base_configuravel",
+        "observacao": "Os CNAEs deverão ser cadastrados e vinculados às regras tributárias antes do enquadramento automático.",
+        "cnaes": []
+    },
+    "fator_r": {
+        "habilitado": true,
+        "percentual_minimo": 0.28,
+        "observacao": "Aplicar somente às atividades sujeitas à análise pelo Fator R."
+    },
+    "fundamentos_legais": [
+        {
+            "norma": "LC 123/2006",
+            "descricao": "Regime do Simples Nacional"
+        },
+        {
+            "norma": "Resolução CGSN 140/2018",
+            "descricao": "Regulamentação do Simples Nacional"
+        }
+    ],
+    "fontes_oficiais": [
+        "LC 123/2006 - Planalto",
+        "Resolução CGSN 140/2018 - Simples Nacional",
+        "Anexos I a V - Receita Federal/Simples Nacional",
+        "Portaria CGSN - sublimite 2026"
+    ]
+}

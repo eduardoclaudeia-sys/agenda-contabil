@@ -1,12 +1,14 @@
 services:
   - type: web
-    name: agenda-contabil
+    name: motor-tributario-jsm
     runtime: python
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app
     healthCheckPath: /health
     envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.5
       - key: SECRET_KEY
         generateValue: true
       - key: DATABASE_URL

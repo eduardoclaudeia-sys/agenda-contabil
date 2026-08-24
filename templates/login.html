@@ -1,23 +1,17 @@
 {% extends "base.html" %}
-{% block title %}Login | Agenda Contábil{% endblock %}
-{% block auth_content %}
-<div class="auth-page">
-  <div class="auth-card">
-    <div class="auth-logo">AC</div>
-    <h1>Agenda Contábil</h1>
-    <p>Acesse sua rotina do escritório.</p>
-
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}
-    {% endwith %}
-
-    <form method="post" class="form-stack">
-      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-      <label>Usuário<input name="username" required autofocus autocomplete="username"></label>
-      <label>Senha<input name="password" type="password" required autocomplete="current-password"></label>
-      <button class="btn primary">Entrar</button>
-    </form>
-    <div class="auth-sign">By Eduardo de Paiva</div>
-  </div>
-</div>
+{% block auth %}
+<div class="auth-bg"><div class="auth-card">
+<div class="auth-logo">JSM</div>
+<h1>Motor Tributário</h1><p>JSM Contabilidade</p>
+{% with msgs=get_flashed_messages(with_categories=true) %}
+{% for cat,msg in msgs %}<div class="flash {{ cat }}">{{ msg }}</div>{% endfor %}
+{% endwith %}
+<form method="post" class="stack">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<label>Usuário<input name="usuario" required autofocus></label>
+<label>Senha<input type="password" name="senha" required></label>
+<button class="btn primary">Entrar</button>
+</form>
+<div class="assinatura">Feito por Eduardo de Paiva</div>
+</div></div>
 {% endblock %}

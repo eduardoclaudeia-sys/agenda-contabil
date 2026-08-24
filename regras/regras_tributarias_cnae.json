@@ -1,0 +1,18 @@
+{
+    "versao": "1.1",
+    "ano_base": 2026,
+    "descricao": "Base de regras tributárias vinculadas aos CNAEs. Regras sujeitas a validação da legislação vigente.",
+    "regras": [
+        {
+            "cnae": "47.84-9-00",
+            "atividade": "Comércio",
+            "permitido_simples": true,
+            "anexo": null,
+            "fator_r": false,
+            "tipo_regra": "comercio_produto_regulado",
+            "status": "validado_parcialmente",
+            "observacao": "Comércio varejista de GLP. O CNAE pode ser exercido por empresa optante pelo Simples Nacional, mas o tratamento tributário não deve ser determinado apenas pelo CNAE. Devem ser analisados o produto, a operação, a tributação aplicável e eventuais regras específicas.",
+            "fundamento_legal": "LC 123/2006; Resolução ANP nº 958/2023; consulta tributária de 2026 sobre CNAE 47.84-9-00."
+        }
+    ]
+}

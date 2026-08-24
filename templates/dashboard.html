@@ -1,45 +1,10 @@
-{% extends "base.html" %}
-{% block content %}
-<section class="page-head">
-  <div><h1>Olá, {{ session.get('user_name').split()[0] }} 👋</h1><p>Veja o que precisa da sua atenção hoje.</p></div>
-  <a class="btn primary" href="{{ url_for('agenda') }}">+ Nova atividade</a>
-</section>
-
-<div class="cards">
-  <div class="card stat"><span>Hoje</span><strong>{{ task_today }}</strong><small>atividade(s)</small></div>
-  <div class="card stat"><span>Pendentes</span><strong>{{ pending }}</strong><small>na agenda</small></div>
-  <div class="card stat warning"><span>Atrasadas</span><strong>{{ overdue }}</strong><small>precisam de atenção</small></div>
-  <div class="card stat"><span>Admissões</span><strong>{{ admissions }}</strong><small>em aberto</small></div>
-  <div class="card stat"><span>Externos</span><strong>{{ externals }}</strong><small>em aberto</small></div>
+{% extends "base.html" %}{% block content %}
+<section class="hero-motor"><span class="kicker">MOTOR TRIBUTÁRIO V5 {{help('inicio')}}</span><h1>Qual regime você quer analisar?</h1><p>O cálculo é o centro do sistema; gestão, cadastro e histórico apoiam o motor.</p></section>
+<div class="regime-grid">
+<a class="regime-card simples" href="{{url_for('simples.motor')}}"><div class="regime-icon">SN</div><div class="regime-status ok">MOTOR COMPLETO</div><h2>Simples Nacional</h2><p>RBT12, FS12, Fator R, Anexos I–V, segregações, sublimite, DAS e memória.</p><span>Abrir motor →</span></a>
+<a class="regime-card presumido" href="{{url_for('presumido.motor')}}"><div class="regime-icon">LP</div><div class="regime-status ok">MOTOR 2026</div><h2>Lucro Presumido</h2><p>Atividades mistas, presunção 2026, IRPJ, CSLL, PIS/Cofins, ISS, ICMS e CPP.</p><span>Abrir motor →</span></a>
+<a class="regime-card real" href="{{url_for('real.motor')}}"><div class="regime-icon">LR</div><div class="regime-status beta">BETA GERENCIAL</div><h2>Lucro Real</h2><p>Lucro contábil, ajustes, compensações, IRPJ/CSLL e PIS/Cofins com créditos informados.</p><span>Abrir motor →</span></a>
 </div>
-
-<div class="grid-2">
-<section class="card">
-  <div class="card-title"><h2>Agenda de hoje</h2><a href="{{ url_for('agenda') }}">Ver agenda</a></div>
-  <div class="table-wrap"><table>
-    <thead><tr><th>Hora</th><th>Atividade</th><th>Categoria</th><th>Status</th></tr></thead>
-    <tbody>
-    {% for item in today_tasks %}
-      <tr><td>{{ item.task_time|brtime }}</td><td><strong>{{ item.title }}</strong></td><td><span class="badge">{{ item.category }}</span></td><td>{{ item.status }}</td></tr>
-    {% else %}
-      <tr><td colspan="4" class="empty">Nenhuma atividade cadastrada para hoje.</td></tr>
-    {% endfor %}
-    </tbody>
-  </table></div>
-</section>
-
-<section class="card">
-  <div class="card-title"><h2>Alertas de certificados</h2><a href="{{ url_for('certificates') }}">Ver todos</a></div>
-  <div class="alert-list">
-  {% for cert in cert_alerts %}
-    <div class="alert-item">
-      <div><strong>{{ cert.certificate_name }}</strong><small>{{ cert.company.name if cert.company else 'Sem empresa' }} • {{ cert.expiry_date|brdate }}</small></div>
-      <span class="badge danger">{{ cert.expiry_date|certlabel }}</span>
-    </div>
-  {% else %}
-    <div class="empty">Nenhum certificado vencendo nos próximos 30 dias.</div>
-  {% endfor %}
-  </div>
-</section>
-</div>
+<div class="quick-grid"><a class="quick-card" href="{{url_for('comparador.index')}}"><strong>Comparador tributário</strong><span>{{comparacoes}} comparações salvas • comparar os três cenários</span></a><a class="quick-card" href="{{url_for('empresas.index')}}"><strong>Empresas</strong><span>{{empresas}} cadastradas • CNPJ, CNAE e históricos</span></a><a class="quick-card" href="{{url_for('historico.index')}}"><strong>Histórico</strong><span>{{simples_count+outros_count}} cálculos salvos • PDF e CSV</span></a></div>
+<div class="grid2"><section class="card"><div class="section-title"><h2>Empresas recentes {{help('empresa')}}</h2></div>{% for e in empresas_recentes %}<a class="list-row" href="{{url_for('empresas.detalhe',empresa_id=e.id)}}"><strong>{{e.razao_social}}</strong><span>{{e.cnpj|cnpjfmt}} • {{e.regime_atual or '-'}}</span></a>{% else %}<div class="empty">Nenhuma empresa cadastrada.</div>{% endfor %}</section><section class="card"><div class="section-title"><h2>Fluxo recomendado {{help('memoria')}}</h2></div><ol class="flow-list"><li>Escolha o regime.</li><li>Selecione empresa ou cálculo avulso.</li><li>Informe dados e tratamentos.</li><li>Calcule e abra a memória.</li><li>Salve/exporte somente após conferir.</li></ol></section></div>
 {% endblock %}

@@ -1,0 +1,6 @@
+{% macro help(key, text='?') -%}
+  {% set item = explicacoes.get(key) %}
+  {% if item %}
+  <button type="button" class="help-btn" data-help-title="{{ item[0] }}" data-help-text="{{ item[1] }}" aria-label="Explicação: {{ item[0] }}">{{ text }}</button>
+  {% endif %}
+{%- endmacro %}

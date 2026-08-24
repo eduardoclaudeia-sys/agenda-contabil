@@ -1,0 +1,19 @@
+{
+  "regime": "Lucro Presumido",
+  "versao": "2026.01",
+  "vigencia_inicio": "2026-01-01",
+  "vigencia_fim": "2026-12-31",
+  "irpj": {"aliquota": 0.15, "adicional": 0.10, "limite_adicional_mes": 20000.0},
+  "csll": {"aliquota_padrao": 0.09},
+  "pis_cofins": {"pis": 0.0065, "cofins": 0.03, "regime": "cumulativo"},
+  "limite_presuncao_trimestral": 1250000.0,
+  "acrescimo_percentual_presuncao": 0.10,
+  "csll_acrescimo_a_partir_trimestre": 2,
+  "atividades": {
+    "comercio": {"rotulo": "Comércio / indústria", "presuncao_irpj": 0.08, "presuncao_csll": 0.12},
+    "industria": {"rotulo": "Comércio / indústria", "presuncao_irpj": 0.08, "presuncao_csll": 0.12},
+    "servico": {"rotulo": "Prestação de serviços", "presuncao_irpj": 0.32, "presuncao_csll": 0.32},
+    "combustivel": {"rotulo": "Revenda de combustíveis", "presuncao_irpj": 0.016, "presuncao_csll": 0.12}
+  },
+  "fonte_oficial": "Receita Federal - Perguntas e Respostas Redução dos Incentivos e Benefícios Tributários V4, atualizado em 30/04/2026, questões 11 a 14"
+}

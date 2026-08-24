@@ -1,55 +1,17 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{% block title %}Agenda Contábil{% endblock %}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-{% if session.get('user_id') %}
-<div class="app-shell">
-  <aside class="sidebar">
-    <div class="brand">
-      <div class="brand-mark">AC</div>
-      <div><strong>Agenda</strong><span>Contábil</span></div>
-    </div>
-
-    <nav>
-      <a href="{{ url_for('dashboard') }}" class="{{ 'active' if request.endpoint=='dashboard' else '' }}">🏠 Dashboard</a>
-      <a href="{{ url_for('agenda') }}" class="{{ 'active' if request.endpoint in ['agenda','task_done','task_delete'] else '' }}">📅 Agenda</a>
-      <a href="{{ url_for('admissions') }}" class="{{ 'active' if request.endpoint and request.endpoint.startswith('admission') else '' }}">👤 Admissões</a>
-      <a href="{{ url_for('certificates') }}" class="{{ 'active' if request.endpoint and request.endpoint.startswith('certificate') else '' }}">🔐 Certificados</a>
-      <a href="{{ url_for('external_services') }}" class="{{ 'active' if request.endpoint and request.endpoint.startswith('external') else '' }}">🚗 Serviços externos</a>
-      <a href="{{ url_for('companies') }}" class="{{ 'active' if request.endpoint and request.endpoint.startswith('compan') else '' }}">🏢 Empresas</a>
-    </nav>
-
-    <div class="sidebar-bottom">
-      <div class="user-box">
-        <strong>{{ session.get('user_name') }}</strong>
-        <small>Administrador</small>
-      </div>
-      <a href="{{ url_for('logout') }}">↪ Sair</a>
-    </div>
-  </aside>
-
-  <main class="content">
-    <header class="topbar">
-      <div><span class="eyebrow">Agenda online</span><strong>Escritório contábil</strong></div>
-      <div class="signature">By Eduardo de Paiva</div>
-    </header>
-
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% for category, message in messages %}
-        <div class="flash {{ category }}">{{ message }}</div>
-      {% endfor %}
-    {% endwith %}
-
-    {% block content %}{% endblock %}
-  </main>
-</div>
-{% else %}
-  {% block auth_content %}{% endblock %}
-{% endif %}
-</body>
-</html>
+{% from "components/help.html" import help %}
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{% block title %}Motor Tributário JSM V5{% endblock %}</title><link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"></head><body>
+{% if session.get('usuario_id') %}
+<div class="app-shell"><aside class="sidebar" id="sidebar"><div class="brand"><div class="logo">JSM</div><div><strong>Motor Tributário</strong><small>V5.0 • Web</small></div></div><nav>
+<div class="nav-label">MOTOR</div>
+<a class="{{'active' if request.blueprint=='dashboard' and request.endpoint=='dashboard.index' else ''}}" href="{{url_for('dashboard.index')}}"><span class="ico">⌂</span> Início</a>
+<a class="{{'active' if request.blueprint=='simples' else ''}}" href="{{url_for('simples.motor')}}"><span class="ico">SN</span> Simples Nacional</a>
+<a class="{{'active' if request.blueprint=='presumido' else ''}}" href="{{url_for('presumido.motor')}}"><span class="ico">LP</span> Lucro Presumido</a>
+<a class="{{'active' if request.blueprint=='real' else ''}}" href="{{url_for('real.motor')}}"><span class="ico">LR</span> Lucro Real <em>BETA</em></a>
+<a class="{{'active' if request.blueprint=='comparador' else ''}}" href="{{url_for('comparador.index')}}"><span class="ico">⇄</span> Comparador</a>
+<div class="nav-label">GESTÃO</div>
+<a href="{{url_for('dashboard.gestao')}}"><span class="ico">▤</span> Gestão</a><a class="{{'active' if request.blueprint=='empresas' else ''}}" href="{{url_for('empresas.index')}}"><span class="ico">▦</span> Empresas</a><a class="{{'active' if request.blueprint=='historico' else ''}}" href="{{url_for('historico.index')}}"><span class="ico">◷</span> Histórico</a>{% if session.get('papel')=='admin' %}<a class="{{'active' if request.blueprint=='usuarios' else ''}}" href="{{url_for('usuarios.index')}}"><span class="ico">◎</span> Usuários</a>{% endif %}
+</nav><div class="side-bottom"><div class="userbox"><strong>{{session.get('usuario_nome')}}</strong><small>{{session.get('papel','admin')|capitalize}}</small></div><form method="post" action="{{url_for('auth.logout')}}"><input type="hidden" name="csrf_token" value="{{csrf_token()}}"><button class="logout-btn">Sair</button></form></div></aside>
+<main class="main-area"><header class="topbar"><button type="button" class="mobile-menu" data-toggle-sidebar>☰</button><div><span>MOTOR TRIBUTÁRIO • JSM</span><strong>Ambiente de análise e conferência</strong></div><div class="author">By Eduardo de Paiva</div></header><div class="content">{% with msgs=get_flashed_messages(with_categories=true) %}{% for cat,msg in msgs %}<div class="flash {{cat}}">{{msg}}</div>{% endfor %}{% endwith %}{% block content %}{% endblock %}</div><footer>Ferramenta de apoio interno. Resultados exigem conferência profissional e validação nas obrigações oficiais.</footer></main></div>
+{% else %}{% block auth %}{% endblock %}{% endif %}
+<div class="help-modal" id="helpModal" aria-hidden="true"><div class="help-backdrop" data-help-close></div><div class="help-dialog"><button type="button" class="help-close" data-help-close>×</button><span class="help-kicker">ENTENDA ESTE PROCESSO</span><h2 id="helpTitle"></h2><p id="helpText"></p></div></div>
+<script src="{{url_for('static',filename='js/app.js')}}"></script></body></html>
