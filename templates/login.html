@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Login | Agenda Contábil{% endblock %}
+{% block auth_content %}
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-logo">AC</div>
+    <h1>Agenda Contábil</h1>
+    <p>Acesse sua rotina do escritório.</p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}
+    {% endwith %}
+
+    <form method="post" class="form-stack">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <label>Usuário<input name="username" required autofocus autocomplete="username"></label>
+      <label>Senha<input name="password" type="password" required autocomplete="current-password"></label>
+      <button class="btn primary">Entrar</button>
+    </form>
+    <div class="auth-sign">By Eduardo de Paiva</div>
+  </div>
+</div>
+{% endblock %}

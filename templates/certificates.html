@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head"><div><h1>Certificados</h1><p>Controle validade e renovações.</p></div></section>
+<div class="security-note">🔒 Por segurança, não salve a senha real do certificado digital. Use apenas uma referência de onde a senha está guardada.</div>
+<section class="card form-card">
+<h2>Novo certificado</h2>
+<form method="post" class="form-grid">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<label>Empresa<select name="company_id"><option value="">Sem empresa</option>{% for c in companies %}<option value="{{ c.id }}">{{ c.name }}</option>{% endfor %}</select></label>
+<label>Certificado<input name="certificate_name" required placeholder="Ex.: e-CNPJ A1"></label>
+<label>Validade<input type="date" name="expiry_date" required></label>
+<label>Referência de senha<input name="password_reference" placeholder="Ex.: cofre da sala 2"></label>
+<label class="span-2">Observações<textarea name="notes" rows="2"></textarea></label>
+<div class="span-2 form-actions"><button class="btn primary">Cadastrar certificado</button></div>
+</form>
+</section>
+<section class="card"><div class="table-wrap"><table>
+<thead><tr><th>Empresa</th><th>Certificado</th><th>Validade</th><th>Prazo</th><th>Referência</th><th></th></tr></thead>
+<tbody>
+{% for item in rows %}
+<tr><td>{{ item.company.name if item.company else '-' }}</td><td><strong>{{ item.certificate_name }}</strong></td><td>{{ item.expiry_date|brdate }}</td><td><span class="badge {% if 'Vencido' in (item.expiry_date|certlabel) or (item.expiry_date|certlabel)=='Vence hoje' %}danger{% endif %}">{{ item.expiry_date|certlabel }}</span></td><td>{{ item.password_reference or '-' }}</td>
+<td><form method="post" action="{{ url_for('certificate_delete', item_id=item.id) }}" onsubmit="return confirm('Excluir este certificado?')"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="icon-btn danger">×</button></form></td></tr>
+{% else %}<tr><td colspan="6" class="empty">Nenhum certificado cadastrado.</td></tr>{% endfor %}
+</tbody></table></div></section>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head"><div><h1>Agenda</h1><p>Organize tarefas e compromissos.</p></div></section>
+
+<section class="card form-card">
+<h2>Nova atividade</h2>
+<form method="post" class="form-grid">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<label class="span-2">Atividade<input name="title" required placeholder="Ex.: Entregar documentação"></label>
+<label>Categoria<select name="category"><option>Admissão</option><option>Certificado</option><option>Serviço externo</option><option>Empresa</option><option selected>Tarefa geral</option></select></label>
+<label>Prioridade<select name="priority"><option>Baixa</option><option selected>Normal</option><option>Alta</option><option>Urgente</option></select></label>
+<label>Data<input name="task_date" type="date" required></label>
+<label>Horário<input name="task_time" type="time"></label>
+<label class="span-2">Observações<textarea name="notes" rows="2"></textarea></label>
+<div class="span-2 form-actions"><button class="btn primary">Adicionar</button></div>
+</form>
+</section>
+
+<section class="card">
+<div class="table-wrap"><table>
+<thead><tr><th>Data</th><th>Hora</th><th>Atividade</th><th>Categoria</th><th>Prioridade</th><th>Status</th><th></th></tr></thead>
+<tbody>
+{% for item in tasks %}
+<tr>
+<td>{{ item.task_date|brdate }}</td><td>{{ item.task_time|brtime }}</td>
+<td><strong>{{ item.title }}</strong><small class="row-note">{{ item.notes or '' }}</small></td>
+<td><span class="badge">{{ item.category }}</span></td><td>{{ item.priority }}</td><td>{{ item.status }}</td>
+<td class="actions">
+{% if item.status != 'Concluída' %}
+<form method="post" action="{{ url_for('task_done', item_id=item.id) }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="icon-btn ok">✓</button></form>
+{% endif %}
+<form method="post" action="{{ url_for('task_delete', item_id=item.id) }}" onsubmit="return confirm('Excluir esta atividade?')"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="icon-btn danger">×</button></form>
+</td>
+</tr>
+{% else %}<tr><td colspan="7" class="empty">Nenhuma atividade cadastrada.</td></tr>{% endfor %}
+</tbody></table></div>
+</section>
+{% endblock %}

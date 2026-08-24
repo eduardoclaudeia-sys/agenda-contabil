@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head"><div><h1>Serviços externos</h1><p>Organize entregas, protocolos e idas à rua.</p></div></section>
+<section class="card form-card">
+<h2>Novo serviço externo</h2>
+<form method="post" class="form-grid">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<label class="span-2">Serviço<input name="title" required placeholder="Ex.: Entregar documentação"></label>
+<label>Empresa<select name="company_id"><option value="">Sem empresa</option>{% for c in companies %}<option value="{{ c.id }}">{{ c.name }}</option>{% endfor %}</select></label>
+<label>Local<input name="location" placeholder="Ex.: Prefeitura"></label>
+<label class="span-2">Endereço<input name="address"></label><label>Prazo<input type="date" name="due_date" required></label>
+<label>Prioridade<select name="priority"><option>Baixa</option><option selected>Normal</option><option>Alta</option><option>Urgente</option></select></label>
+<label>Status<select name="status"><option>Preciso ir</option><option>Em andamento</option><option>Entregue</option></select></label>
+<label>Documentos<textarea name="documents" rows="2"></textarea></label><label>Protocolo<input name="protocol"></label><label>Observações<textarea name="notes" rows="2"></textarea></label>
+<div class="span-2 form-actions"><button class="btn primary">Cadastrar serviço</button></div>
+</form>
+</section>
+<section class="card"><div class="table-wrap"><table>
+<thead><tr><th>Prazo</th><th>Serviço</th><th>Empresa</th><th>Local</th><th>Prioridade</th><th>Status / protocolo</th><th></th></tr></thead>
+<tbody>
+{% for item in rows %}
+<tr><td>{{ item.due_date|brdate }}</td><td><strong>{{ item.title }}</strong></td><td>{{ item.company.name if item.company else '-' }}</td><td>{{ item.location or '-' }}</td><td>{{ item.priority }}</td>
+<td><form method="post" action="{{ url_for('external_status', item_id=item.id) }}" class="inline-edit"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><select class="compact" name="status">{% for s in ['Preciso ir','Em andamento','Entregue'] %}<option {% if item.status==s %}selected{% endif %}>{{ s }}</option>{% endfor %}</select><input class="compact-input" name="protocol" value="{{ item.protocol or '' }}" placeholder="Protocolo"><button class="icon-btn ok">✓</button></form></td>
+<td><form method="post" action="{{ url_for('external_delete', item_id=item.id) }}" onsubmit="return confirm('Excluir este serviço?')"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="icon-btn danger">×</button></form></td></tr>
+{% else %}<tr><td colspan="7" class="empty">Nenhum serviço externo cadastrado.</td></tr>{% endfor %}
+</tbody></table></div></section>
+{% endblock %}

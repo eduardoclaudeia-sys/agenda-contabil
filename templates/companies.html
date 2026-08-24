@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head"><div><h1>Empresas</h1><p>Cadastre os clientes atendidos pelo escritório.</p></div></section>
+<section class="card form-card">
+<h2>Nova empresa</h2>
+<form method="post" class="form-grid">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<label>Empresa<input name="name" required></label><label>CNPJ<input name="cnpj"></label>
+<label>Responsável<input name="contact_name"></label><label>Telefone / WhatsApp<input name="phone"></label>
+<label>E-mail<input type="email" name="email"></label><label>Endereço<input name="address"></label>
+<label class="span-2">Observações<textarea name="notes"></textarea></label>
+<div class="span-2 form-actions"><button class="btn primary">Cadastrar empresa</button></div>
+</form>
+</section>
+<section class="card"><div class="table-wrap"><table>
+<thead><tr><th>Empresa</th><th>CNPJ</th><th>Responsável</th><th>Contato</th><th></th></tr></thead>
+<tbody>
+{% for item in rows %}
+<tr><td><strong>{{ item.name }}</strong></td><td>{{ item.cnpj or '-' }}</td><td>{{ item.contact_name or '-' }}</td><td>{{ item.phone or item.email or '-' }}</td>
+<td><form method="post" action="{{ url_for('company_delete', item_id=item.id) }}" onsubmit="return confirm('Excluir esta empresa?')"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="icon-btn danger">×</button></form></td></tr>
+{% else %}<tr><td colspan="5" class="empty">Nenhuma empresa cadastrada.</td></tr>{% endfor %}
+</tbody></table></div></section>
+{% endblock %}

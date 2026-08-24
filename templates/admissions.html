@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head"><div><h1>Admissões</h1><p>Acompanhe documentos, prazos e andamento.</p></div></section>
+<section class="card form-card">
+<h2>Nova admissão</h2>
+<form method="post" class="form-grid">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<label>Funcionário<input name="employee_name" required></label><label>CPF<input name="cpf"></label>
+<label>Cargo<input name="role"></label>
+<label>Empresa<select name="company_id"><option value="">Sem empresa</option>{% for c in companies %}<option value="{{ c.id }}">{{ c.name }}</option>{% endfor %}</select></label>
+<label>Data de admissão<input type="date" name="admission_date" required></label><label>Prazo<input type="date" name="deadline"></label>
+<label>Status<select name="status"><option>Aguardando documentos</option><option>Em andamento</option><option>Aguardando empresa</option><option>Concluída</option></select></label>
+<label>Documentos recebidos<textarea name="documents_received" rows="2"></textarea></label>
+<label>Documentos pendentes<textarea name="documents_pending" rows="2"></textarea></label><label>Observações<textarea name="notes" rows="2"></textarea></label>
+<div class="span-2 form-actions"><button class="btn primary">Cadastrar admissão</button></div>
+</form>
+</section>
+<section class="card"><div class="table-wrap"><table>
+<thead><tr><th>Funcionário</th><th>Empresa</th><th>Admissão</th><th>Cargo</th><th>Status</th><th></th></tr></thead>
+<tbody>
+{% for item in rows %}
+<tr><td><strong>{{ item.employee_name }}</strong><small class="row-note">{{ item.cpf or '' }}</small></td><td>{{ item.company.name if item.company else '-' }}</td><td>{{ item.admission_date|brdate }}</td><td>{{ item.role or '-' }}</td>
+<td><form method="post" action="{{ url_for('admission_status', item_id=item.id) }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><select class="compact" name="status" onchange="this.form.submit()">{% for s in ['Aguardando documentos','Em andamento','Aguardando empresa','Concluída'] %}<option {% if item.status==s %}selected{% endif %}>{{ s }}</option>{% endfor %}</select></form></td>
+<td><form method="post" action="{{ url_for('admission_delete', item_id=item.id) }}" onsubmit="return confirm('Excluir esta admissão?')"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="icon-btn danger">×</button></form></td></tr>
+{% else %}<tr><td colspan="6" class="empty">Nenhuma admissão cadastrada.</td></tr>{% endfor %}
+</tbody></table></div></section>
+{% endblock %}

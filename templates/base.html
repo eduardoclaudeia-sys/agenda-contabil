@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{% block title %}Agenda Contábil{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+{% if session.get('user_id') %}
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">AC</div>
+      <div><strong>Agenda</strong><span>Contábil</span></div>
+    </div>
+
+    <nav>
+      <a href="{{ url_for('dashboard') }}" class="{{ 'active' if request.endpoint=='dashboard' else '' }}">🏠 Dashboard</a>
+      <a href="{{ url_for('agenda') }}" class="{{ 'active' if request.endpoint in ['agenda','task_done','task_delete'] else '' }}">📅 Agenda</a>
+      <a href="{{ url_for('admissions') }}" class="{{ 'active' if request.endpoint and request.endpoint.startswith('admission') else '' }}">👤 Admissões</a>
+      <a href="{{ url_for('certificates') }}" class="{{ 'active' if request.endpoint and request.endpoint.startswith('certificate') else '' }}">🔐 Certificados</a>
+      <a href="{{ url_for('external_services') }}" class="{{ 'active' if request.endpoint and request.endpoint.startswith('external') else '' }}">🚗 Serviços externos</a>
+      <a href="{{ url_for('companies') }}" class="{{ 'active' if request.endpoint and request.endpoint.startswith('compan') else '' }}">🏢 Empresas</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="user-box">
+        <strong>{{ session.get('user_name') }}</strong>
+        <small>Administrador</small>
+      </div>
+      <a href="{{ url_for('logout') }}">↪ Sair</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <header class="topbar">
+      <div><span class="eyebrow">Agenda online</span><strong>Escritório contábil</strong></div>
+      <div class="signature">By Eduardo de Paiva</div>
+    </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+  </main>
+</div>
+{% else %}
+  {% block auth_content %}{% endblock %}
+{% endif %}
+</body>
+</html>

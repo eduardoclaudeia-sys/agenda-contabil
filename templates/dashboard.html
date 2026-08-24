@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head">
+  <div><h1>Olá, {{ session.get('user_name').split()[0] }} 👋</h1><p>Veja o que precisa da sua atenção hoje.</p></div>
+  <a class="btn primary" href="{{ url_for('agenda') }}">+ Nova atividade</a>
+</section>
+
+<div class="cards">
+  <div class="card stat"><span>Hoje</span><strong>{{ task_today }}</strong><small>atividade(s)</small></div>
+  <div class="card stat"><span>Pendentes</span><strong>{{ pending }}</strong><small>na agenda</small></div>
+  <div class="card stat warning"><span>Atrasadas</span><strong>{{ overdue }}</strong><small>precisam de atenção</small></div>
+  <div class="card stat"><span>Admissões</span><strong>{{ admissions }}</strong><small>em aberto</small></div>
+  <div class="card stat"><span>Externos</span><strong>{{ externals }}</strong><small>em aberto</small></div>
+</div>
+
+<div class="grid-2">
+<section class="card">
+  <div class="card-title"><h2>Agenda de hoje</h2><a href="{{ url_for('agenda') }}">Ver agenda</a></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Hora</th><th>Atividade</th><th>Categoria</th><th>Status</th></tr></thead>
+    <tbody>
+    {% for item in today_tasks %}
+      <tr><td>{{ item.task_time|brtime }}</td><td><strong>{{ item.title }}</strong></td><td><span class="badge">{{ item.category }}</span></td><td>{{ item.status }}</td></tr>
+    {% else %}
+      <tr><td colspan="4" class="empty">Nenhuma atividade cadastrada para hoje.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card">
+  <div class="card-title"><h2>Alertas de certificados</h2><a href="{{ url_for('certificates') }}">Ver todos</a></div>
+  <div class="alert-list">
+  {% for cert in cert_alerts %}
+    <div class="alert-item">
+      <div><strong>{{ cert.certificate_name }}</strong><small>{{ cert.company.name if cert.company else 'Sem empresa' }} • {{ cert.expiry_date|brdate }}</small></div>
+      <span class="badge danger">{{ cert.expiry_date|certlabel }}</span>
+    </div>
+  {% else %}
+    <div class="empty">Nenhum certificado vencendo nos próximos 30 dias.</div>
+  {% endfor %}
+  </div>
+</section>
+</div>
+{% endblock %}
